@@ -7,6 +7,8 @@ class Libro:
         self.idiom = idiom
         self.price = price
 library = []
+gend = []
+idi = []
 def register_book(isbn,title,gender,idiom,price):
     book = Libro(isbn,title,gender,idiom,price)
     library.append(book)
@@ -60,11 +62,13 @@ def intput_book(n, auto):
     while n != 0:
         if auto:
             isbn = create_isbn()
+            gender = choice(gend)[0]
+            idiom = choice(idi)
         else:
             isbn = input('isbn: ')
+            gender = input('gender: ')
+            idiom = input('idiom: ')
         title = input('title: ')
-        gender = input('gender: ')
-        idiom = input('idiom: ')
         price = int(input('price: '))
         if isbn_condition_1(isbn) and isbn_condition_2(isbn) and isbn_condition_3(isbn):
             register_book(isbn,title,gender,idiom,price)
